@@ -1,0 +1,89 @@
+/**
+ * Button Styles
+ *
+ * Reusable button component with multiple variants
+ */
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  display: inline-block;
+}
+
+/* Primary variant - for main actions */
+.primary {
+  background-color: var(--color-primary-main);
+  color: var(--color-primary-contrast);
+  border-color: var(--color-primary-main);
+}
+
+.primary:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+}
+
+/* Danger variant - for destructive actions */
+.danger {
+  background-color: var(--color-primary-contrast);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-dark);
+}
+
+.danger i {
+  color: var(--color-error-main);
+}
+
+.danger:hover:not(:disabled) {
+  background-color: var(--color-error-light);
+  border-color: var(--color-error-main);
+  color: var(--color-error-main);
+}
+
+/* Happy variant - for positive/success actions */
+.happy {
+  background-color: var(--color-success-main);
+  color: var(--color-primary-contrast);
+  border-color: var(--color-success-main);
+}
+
+.happy:hover:not(:disabled) {
+  background-color: var(--color-success-dark);
+}
+
+/* Secondary variant - for secondary actions */
+.secondary {
+  background-color: var(--color-background-default);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-main);
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: var(--color-background-hover);
+  border-color: var(--color-border-dark);
+}

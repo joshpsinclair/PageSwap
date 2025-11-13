@@ -1,0 +1,101 @@
+/**
+ * UserTable Styles
+ *
+ * CSS Module for the UserTable component.
+ * Uses design tokens from variables.css
+ */
+
+.tableContainer {
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-right: 1px solid var(--color-border-dark);
+}
+
+.thead {
+  background: var(--color-background-paper);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.th {
+  background: var(--color-background-paper);
+}
+
+.th.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.th.sortable:hover {
+  background: var(--color-background-hover);
+}
+
+.sortIndicator {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+}
+
+.tbody {
+}
+
+tr {
+  border-bottom: 1px solid var(--color-border-main);
+  transition: background var(--transition-fast);
+  text-align: left;
+  height: 50px;
+}
+
+td, th {
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: 14px;
+  height: 50px;
+  text-align: left;
+}
+
+th i {
+  padding-left: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-silver);
+}
+
+th i.active {
+  color: var(--color-primary-main);
+}
+
+tr:hover {
+  background: var(--color-background-hover);
+}
+
+.indexColumn {
+  width: 50px;
+}
+
+.nameColumn {
+  width: 300px;
+}
+
+.nameColumn span.fullName {
+  padding-left: var(--spacing-md);
+}
+
+.ageColumn {
+  width: 100px;
+}
+
+.actionsColumn {
+  text-align: right;
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: flex-end;
+}

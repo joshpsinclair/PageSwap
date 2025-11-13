@@ -1,0 +1,79 @@
+/**
+ * Users Page Styles
+ */
+
+.page {
+  padding-top: var(--spacing-lg);
+  padding-left: var(--spacing-lg);
+  padding-right: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+  background-color: var(--color-primary-contrast);
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border-dark);
+}
+
+.header {
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.addUser {
+  margin-left: auto;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-primary-main);
+  margin-left: var(--spacing-md);
+}
+
+.userIcon {
+  width: 25px;
+  height: 25px;
+  font-size: 25px;
+  color: var(--color-primary-main);
+}
+
+.tableWrapper {
+  flex: 1;
+  overflow: auto;
+  border-top: 1px solid var(--color-border-dark);
+  border-left: 1px solid var(--color-border-dark);
+  border-right: 1px solid var(--color-border-dark);
+}
+
+.loadingContainer {
+  padding: var(--spacing-lg);
+}
+
+.loadingTitle {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-primary);
+}
+
+.loadingText {
+  color: var(--color-text-secondary);
+}
+
+.errorContainer {
+  padding: var(--spacing-lg);
+}
+
+.errorTitle {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-primary);
+}
+
+.errorText {
+  color: var(--color-error-main);
+  padding: var(--spacing-md);
+  background: var(--color-error-light);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-error-main);
+}
