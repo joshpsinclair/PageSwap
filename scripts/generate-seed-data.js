@@ -102,8 +102,14 @@ const output = {
     users
 };
 
+// Ensure public directory exists
+const publicDir = path.join(__dirname, '../public');
+if (!fs.existsSync(publicDir)) {
+    fs.mkdirSync(publicDir, { recursive: true });
+}
+
 // Write to public/users.json
-const outputPath = path.join(__dirname, '../public/users.json');
+const outputPath = path.join(publicDir, 'users.json');
 fs.writeFileSync(outputPath, JSON.stringify(output, null, 2), 'utf-8');
 
 console.log(`✅ Generated ${userCount} users and saved to public/users.json`);

@@ -46,9 +46,8 @@ export const executeTransaction = <T>(
     mode: IDBTransactionMode,
     operation: (store: IDBObjectStore) => IDBRequest<T>
 ): Promise<T> => {
-    return new Promise(async (resolve, reject) => {
-        try {
-            const db = await initDB();
+    return new Promise((resolve, reject) => {
+        initDB().then((db) => {
             const transaction = db.transaction(USERS_STORE, mode);
             const store = transaction.objectStore(USERS_STORE);
             const request = operation(store);
@@ -64,8 +63,6 @@ export const executeTransaction = <T>(
             transaction.onerror = () => {
                 reject(transaction.error);
             };
-        } catch (error) {
-            reject(error);
-        }
+        }).catch(reject);
     });
 };

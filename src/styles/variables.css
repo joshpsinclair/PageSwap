@@ -1,21 +1,8 @@
-/**
- * Design System - CSS Variables
- *
- * CSS custom properties for consistent theming.
- * Alternative to importing colors.ts if you prefer CSS-based styling.
- *
- * Usage:
- * .my-component {
- *   color: var(--color-text-primary);
- *   background: var(--color-background-default);
- * }
- */
-
 :root {
   /* Primary colors */
   --color-primary-main: #0E567C;
-  --color-primary-light: #4da3ff;
-  --color-primary-dark: #0056b3;
+  --color-primary-light: #2488BC;
+  --color-primary-dark: #083248;
   --color-primary-contrast: #ffffff;
 
   /* Secondary colors */
@@ -27,7 +14,7 @@
   --color-silver: #bbbbbb;
 
   /* Semantic colors */
-  --color-success-main: #28a745;
+  --color-success-main: #43853C;
   --color-success-light: #5cb85c;
   --color-success-dark: #1e7e34;
 
@@ -43,21 +30,9 @@
   --color-info-light: #5bc0de;
   --color-info-dark: #117a8b;
 
-  /* Grays */
-  --color-gray-50: #f8f9fa;
-  --color-gray-100: #f1f3f5;
-  --color-gray-200: #e9ecef;
-  --color-gray-300: #dee2e6;
-  --color-gray-400: #ced4da;
-  --color-gray-500: #adb5bd;
-  --color-gray-600: #6c757d;
-  --color-gray-700: #495057;
-  --color-gray-800: #343a40;
-  --color-gray-900: #212529;
-
   /* Text colors */
   --color-text-primary: #111111;
-  --color-text-secondary: #6c757d;
+  --color-text-secondary: #444444;
   --color-text-disabled: #adb5bd;
   --color-text-hint: #999999;
 
@@ -79,9 +54,9 @@
   --spacing-xs: 4px;
   --spacing-sm: 7px;
   --spacing-md: 12px;
-  --spacing-lg: 24px;
+  --spacing-lg: 20px;
   --spacing-xl: 32px;
-  --spacing-2xl: 48px;
+  --spacing-2xl: 40px;
 
   /* Border radius */
   --radius-sm: 2px;
@@ -93,7 +68,6 @@
   --font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  --font-family-mono: 'Courier New', monospace;
 
   /* Font sizes */
   --font-size-xs: 12px;

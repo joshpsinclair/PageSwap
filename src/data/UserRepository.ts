@@ -27,7 +27,7 @@ export class UserRepository {
      * @throws Error for database operation failures
      * @returns The user if found, undefined otherwise
      */
-    static async get(id: string): Promise<IUser | undefined> {
+    static get(id: string): Promise<IUser | undefined> {
         return executeTransaction('readonly', (store) => store.get(id));
     }
 
@@ -39,15 +39,15 @@ export class UserRepository {
      * @returns Array of users
      */
     static async getAll(skip: number = 0, take: number = Number.MAX_SAFE_INTEGER): Promise<IUser[]> {
-        return new Promise(async (resolve, reject) => {
-            try {
-                const db = await initDB();
+        return new Promise((resolve, reject) => {
+            initDB().then((db) => {
                 const transaction = db.transaction('users', 'readonly');
                 const store = transaction.objectStore('users');
                 const request = store.getAll();
 
                 request.onsuccess = () => {
                     const allUsers = request.result as IUser[];
+
                     // Apply pagination
                     const paginatedUsers = allUsers.slice(skip, skip + take);
                     resolve(paginatedUsers);
@@ -56,9 +56,7 @@ export class UserRepository {
                 request.onerror = () => {
                     reject(request.error);
                 };
-            } catch (error) {
-                reject(error);
-            }
+            }).catch(reject);
         });
     }
 
@@ -69,10 +67,9 @@ export class UserRepository {
      * @throws ValidationError if validation fails
      * @throws Error for database operation failures
      */
-    static async add(user: IUser): Promise<string> {
+    static add(user: IUser): Promise<string> {
         this.validateUser(user);
-        const result = await executeTransaction('readwrite', (store) => store.put(user));
-        return result as string;
+        return executeTransaction('readwrite', (store) => store.put(user));
     }
 
     /**
@@ -81,7 +78,7 @@ export class UserRepository {
      * @throws Error for database operation failures
      */
     static async delete(id: string): Promise<void> {
-        await executeTransaction('readwrite', (store) => store.delete(id));
+        return executeTransaction('readwrite', (store) => store.delete(id));
     }
 
     /**
@@ -99,7 +96,7 @@ export class UserRepository {
      * Useful for testing or resetting the application
      */
     static async clear(): Promise<void> {
-        await executeTransaction('readwrite', (store) => store.clear());
+        return executeTransaction('readwrite', (store) => store.clear());
     }
 
     /**
@@ -112,13 +109,11 @@ export class UserRepository {
 
         // Only seed if database is empty
         if (currentCount === 0) {
-            return new Promise(async (resolve, reject) => {
-                try {
-                    const db = await initDB();
+            return new Promise((resolve, reject) => {
+                initDB().then((db) => {
                     const transaction = db.transaction('users', 'readwrite');
                     const store = transaction.objectStore('users');
 
-                    // Add all users
                     users.forEach(user => store.put(user));
 
                     transaction.oncomplete = () => {
@@ -128,9 +123,7 @@ export class UserRepository {
                     transaction.onerror = () => {
                         reject(transaction.error);
                     };
-                } catch (error) {
-                    reject(error);
-                }
+                }).catch(reject);
             });
         }
     }
@@ -144,9 +137,8 @@ export class UserRepository {
         // Validate all users before starting transaction
         users.forEach(user => this.validateUser(user));
 
-        return new Promise(async (resolve, reject) => {
-            try {
-                const db = await initDB();
+        return new Promise((resolve, reject) => {
+            initDB().then((db) => {
                 const transaction = db.transaction('users', 'readwrite');
                 const store = transaction.objectStore('users');
 
@@ -160,9 +152,7 @@ export class UserRepository {
                 transaction.onerror = () => {
                     reject(transaction.error);
                 };
-            } catch (error) {
-                reject(error);
-            }
+            }).catch(reject);
         });
     }
 

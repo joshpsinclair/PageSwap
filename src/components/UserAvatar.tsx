@@ -10,17 +10,6 @@ interface UserAvatarProps {
   size?: number
 }
 
-/**
- * UserAvatar - Displays user avatar with loading and fallback states
- *
- * Uses Radix Avatar primitive and ImageRepository to load images.
- * Handles missing/invalid avatar IDs gracefully with initials fallback.
- *
- * TODO for candidates:
- * - Add proper styling
- * - Consider caching strategies
- * - Add error retry mechanism
- */
 export function UserAvatar({ avatarId, firstName, lastName, size = 40 }: UserAvatarProps) {
   const [imageUrl, setImageUrl] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
@@ -35,12 +24,11 @@ export function UserAvatar({ avatarId, firstName, lastName, size = 40 }: UserAva
 
     const loadImage = async () => {
       try {
-        const url = await ImageRepository.getImage(avatarId)
+        const url = await ImageRepository.get(avatarId)
         if (!cancelled) {
           setImageUrl(url)
         }
       } catch (err) {
-        // Error loading image - will show fallback initials
         console.warn('Failed to load avatar:', err)
       } finally {
         if (!cancelled) {
@@ -55,8 +43,7 @@ export function UserAvatar({ avatarId, firstName, lastName, size = 40 }: UserAva
       cancelled = true
     }
   }, [avatarId])
-
-  // Generate initials for fallback
+  
   const initials = [firstName, lastName]
     .filter(Boolean)
     .map(name => name?.[0]?.toUpperCase())

@@ -11,18 +11,15 @@ import {
 } from '@tanstack/react-table'
 import type { IUser } from '../types/IUser.ts'
 import { UserAvatar } from './UserAvatar'
-import { Button } from './Button'
 import styles from './UserTable.module.css'
 
 interface UserTableProps {
   users: IUser[]
-  onEditUser?: (user: IUser) => void
-  onDeleteUser?: (userId: string) => void
 }
 
 const columnHelper = createColumnHelper<IUser>()
 
-export function UserTable({ users, onEditUser, onDeleteUser }: UserTableProps) {
+export function UserTable({ users }: UserTableProps) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
 
@@ -114,19 +111,17 @@ export function UserTable({ users, onEditUser, onDeleteUser }: UserTableProps) {
       columnHelper.display({
         id: 'actions',
         header: 'Row Control',
-        cell: (info) => (
+        cell: () => (
           <div className={styles.actions}>
-            {onDeleteUser && (
               <button
               >
                 Remove
               </button>
-            )}
           </div>
         ),
       }),
     ],
-    [onEditUser, onDeleteUser]
+    []
   )
 
   const table = useReactTable({
@@ -159,7 +154,6 @@ export function UserTable({ users, onEditUser, onDeleteUser }: UserTableProps) {
   }
     
     return (
-    <div className={styles.tableContainer}>
       <table className={styles.table}>
         <thead className={styles.thead}>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -193,7 +187,5 @@ export function UserTable({ users, onEditUser, onDeleteUser }: UserTableProps) {
           ))}
         </tbody>
       </table>
-      <br></br>
-    </div>
     )
 }

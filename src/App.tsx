@@ -26,7 +26,7 @@ function App() {
     <div className={styles.appContainer}>
       <header className={styles.productHeader}>
         <i className="fa-solid fa-book-open"></i>
-        <h1 className={styles.productName}>PageSwap Admin</h1>
+        <div className={styles.productName}>Page<span>Swap</span></div>
       </header>
       
       <div className={styles.mainLayout}>

@@ -1,7 +1,3 @@
-/**
- * Sidebar Navigation Styles
- */
-
 .sidebar {
   width: 200px;
   flex-shrink: 0;
@@ -9,6 +5,9 @@
   border-right: 1px solid var(--color-border-dark);
   padding: var(--spacing-lg) 0;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .nav {
@@ -24,7 +23,6 @@
   padding: var(--spacing-md) var(--spacing-lg);
   background: none;
   border: none;
-  border-left: 3px solid transparent;
   color: var(--color-text-secondary);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
@@ -41,13 +39,66 @@
 }
 
 .navItem.active {
-  border-left-color: var(--color-primary-main);
-  background-color: var(--color-background-hover);
-  color: var(--color-primary-main);
+  color: var(--color-text-primary);
   font-weight: var(--font-weight-semibold);
 }
 
-.navItem i {
+.navItem.active i {
   width: 20px;
   text-align: center;
+  color: var(--color-primary-main);
+}
+
+/* Dev Utilities Section */
+.utilities {
+  margin-top: auto;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border-dark);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.utilitiesLabel {
+  padding: var(--spacing-xs) var(--spacing-lg);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+}
+
+.utilityButton {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+  width: 100%;
+  font-family: inherit;
+  opacity: 0.7;
+}
+
+.utilityButton:hover:not(:disabled) {
+  background-color: var(--color-background-hover);
+  opacity: 1;
+}
+
+.utilityButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.utilityButton i {
+  width: 16px;
+  text-align: center;
+  font-size: var(--font-size-xs);
 }
