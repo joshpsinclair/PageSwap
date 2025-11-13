@@ -44,8 +44,6 @@ export function UsersPage() {
   }, [loadUsers])
 
   const handleEditUser = useCallback((user: IUser) => {
-    // TODO: Open edit modal with user data
-    console.log('Edit user:', user)
     alert(`TODO: Implement edit modal for ${user.firstName} ${user.lastName}`)
   }, [])
 
@@ -92,13 +90,9 @@ export function UsersPage() {
           <i className={`fa-regular fa-circle-user ${styles.userIcon}`}></i>
           <div className={styles.title}>User Management System</div>
           <div className={styles.addUser}>
-            <Button
-                variant="happy"
-                onClick={handleAddUser}
-                icon={<i className="fa-solid fa-plus"></i>}
-            >
-              Add User
-            </Button>
+            <button>
+              + Add User
+            </button>
           </div>
         </div>
 

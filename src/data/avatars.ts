@@ -30,11 +30,3 @@ export const AVATAR_IDS = [
 ] as const;
 
 export type AvatarId = typeof AVATAR_IDS[number];
-
-/**
- * Get a random avatar ID
- */
-export const getRandomAvatarId = (): AvatarId => {
-    const randomIndex = Math.floor(Math.random() * AVATAR_IDS.length);
-    return AVATAR_IDS[randomIndex];
-};

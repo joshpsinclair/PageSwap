@@ -8,15 +8,15 @@ import './App.css'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('users')
-
+  
   const renderPage = () => {
     switch (currentPage) {
-      case 'users':
-        return <UsersPage />
       case 'books':
         return <BooksPage />
       case 'loans':
         return <LoansPage />
+      case 'users':
+        return <UsersPage />
       default:
         return <UsersPage />
     }

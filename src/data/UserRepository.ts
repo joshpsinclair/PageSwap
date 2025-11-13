@@ -10,8 +10,9 @@ import { executeTransaction, initDB } from './db';
  * All methods are asynchronous and return Promises.
  */
 export class UserRepository {
-    private static minDelay = 2000; // minimum delay in ms
-    private static maxDelay = 5000; // maximum delay in ms
+    private static minDelay = 2000;
+    private static maxDelay = 5000;
+    
     /**
      * Initialize the database
      * Should be called once when the application starts
@@ -38,7 +39,6 @@ export class UserRepository {
      * @returns Array of users
      */
     static async getAll(skip: number = 0, take: number = Number.MAX_SAFE_INTEGER): Promise<IUser[]> {
-        await this.simulateNetworkDelay()
         return new Promise(async (resolve, reject) => {
             try {
                 const db = await initDB();
@@ -112,7 +112,26 @@ export class UserRepository {
 
         // Only seed if database is empty
         if (currentCount === 0) {
-            await this.addMany(users);
+            return new Promise(async (resolve, reject) => {
+                try {
+                    const db = await initDB();
+                    const transaction = db.transaction('users', 'readwrite');
+                    const store = transaction.objectStore('users');
+
+                    // Add all users
+                    users.forEach(user => store.put(user));
+
+                    transaction.oncomplete = () => {
+                        resolve();
+                    };
+
+                    transaction.onerror = () => {
+                        reject(transaction.error);
+                    };
+                } catch (error) {
+                    reject(error);
+                }
+            });
         }
     }
 
@@ -167,6 +186,21 @@ export class UserRepository {
                 property: 'lastName',
                 message: 'Last name is required'
             });
+        }
+
+        // Age is optional, but if provided, must be a number greater than 0
+        if (user.age !== undefined && user.age !== null) {
+            if (typeof user.age !== 'number' || isNaN(user.age)) {
+                propertyErrors.push({
+                    property: 'age',
+                    message: 'Age must be a valid number'
+                });
+            } else if (user.age <= 0) {
+                propertyErrors.push({
+                    property: 'age',
+                    message: 'Age must be greater than 0'
+                });
+            }
         }
 
         if (propertyErrors.length > 0) {

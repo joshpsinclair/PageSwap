@@ -22,25 +22,6 @@ interface UserTableProps {
 
 const columnHelper = createColumnHelper<IUser>()
 
-/**
- * UserTable - Data table for displaying and managing users
- *
- * Built with TanStack Table for sorting, filtering, and pagination support.
- * Integrates with UserAvatar for image loading with simulated network delay.
- *
- * Features:
- * - Column sorting
- * - Handles missing data (firstName, lastName, age)
- * - Avatar loading states
- * - Action handlers for edit/delete
- *
- * TODO for candidates:
- * - Add proper styling to match design.png
- * - Implement search/filter UI
- * - Add pagination if needed
- * - Style the table headers and rows
- * - Add hover states and interactions
- */
 export function UserTable({ users, onEditUser, onDeleteUser }: UserTableProps) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
@@ -79,7 +60,7 @@ export function UserTable({ users, onEditUser, onDeleteUser }: UserTableProps) {
 
             return (
               <div className={styles.nameHeader}>
-                <span>Name</span>
+                <div>Name</div>
                 <i className={iconClass}></i>
               </div>
             )
@@ -98,7 +79,7 @@ export function UserTable({ users, onEditUser, onDeleteUser }: UserTableProps) {
                       lastName={lastName}
                       size={28}
                   />
-                  <span className={styles.fullName}>{fullName ? fullName : '-'}</span>
+                  <div className={styles.fullName}>{fullName ? fullName : '-'}</div>
                 </div>
             )
           },
@@ -136,13 +117,10 @@ export function UserTable({ users, onEditUser, onDeleteUser }: UserTableProps) {
         cell: (info) => (
           <div className={styles.actions}>
             {onDeleteUser && (
-              <Button
-                variant="danger"
-                onClick={() => onDeleteUser(info.row.original.id)}
-                icon={<i className="fa-solid fa-trash"></i>}
+              <button
               >
                 Remove
-              </Button>
+              </button>
             )}
           </div>
         ),
@@ -182,8 +160,6 @@ export function UserTable({ users, onEditUser, onDeleteUser }: UserTableProps) {
     
     return (
     <div className={styles.tableContainer}>
-      {/* TODO: Add search/filter UI here */}
-    
       <table className={styles.table}>
         <thead className={styles.thead}>
           {table.getHeaderGroups().map((headerGroup) => (
