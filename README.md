@@ -251,38 +251,47 @@ In a real-world scenario, you'd complete Ticket 1, submit a PR, and continue wit
 
 ### Setup Instructions
 
-1. **Clone the repository**
+1. **Fork the repository**
+   - Navigate to https://github.com/Clear21Public/PageSwap
+   - Click Fork -> Create a new fork
+   - This will Fork the repository to your personal GitHub account
+
+2. **Clone the repository**
+    - In your local dev environment open a command prompt and navigate to a development directory.
    ```bash
-   git clone git@github.com:josh-sinclair/PageSwap.git
-   # or via HTTPS:
-   # git clone https://github.com/josh-sinclair/PageSwap.git
+    cd C:\Development\ 
+   ```
+   ```bash
+   git clone git@github.com:{GITHUBUSER}/PageSwap.git
+   # OR if you use HTTPS
+   git clone https://github.com/{GITHUBUSER}/PageSwap.git
    ```
 
-2. **Create your feature branch**
+3. **Create your feature branch**
    ```bash
    cd PageSwap
    git checkout -b john-smith
    # Use your actual name: firstname-lastname
    ```
 
-3. **Install dependencies**
+4. **Install dependencies**
    ```bash
    npm install
    ```
 
-4. **Generate seed data**
+5. **Generate seed data**
    ```bash
    npm run seed 100
    # This creates fake user data in public/users.json
    # You can adjust the number (e.g., npm run seed 5000)
    ```
 
-5. **Start the development server**
+6. **Start the development server**
    ```bash
    npm run dev
    ```
 
-6. **Open the app**
+7. **Open the app**
    - Navigate to `http://localhost:5173` (or the URL shown in terminal)
    - Click "Users" in the sidebar to view the User Management page
 
@@ -331,8 +340,9 @@ The app uses **IndexedDB** (browser-based database) for data persistence. Use th
    ```
 
 3. **Create a Pull Request**
-   - Go to [https://github.com/josh-sinclair/PageSwap](https://github.com/josh-sinclair/PageSwap)
+   - Navigate to https://github.com/{GITHUBUSER}/PageSwap ( Your fork of the project )
    - Click "Compare & pull request"
+   - Ensure your name is the title of the description e.g John Smith
    - **Write a detailed PR description:**
      - What tickets did you complete?
      - What architectural decisions did you make?
@@ -385,9 +395,8 @@ Before starting, familiarize yourself with:
 ## 📞 Questions?
 
 If you encounter blockers or have questions about requirements:
-- **Technical issues:** Reach out to [contact email]
-- **Clarifications:** Document assumptions in your PR description
+- **Technical issues:** Reach out to joshua.sinclair@clear21.com
 
 ---
 
-**Good luck! We're excited to see how you approach this challenge.** 🚀
+**Good luck! We're excited to see how you approach this challenge.**
