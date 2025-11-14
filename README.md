@@ -340,7 +340,7 @@ The app uses **IndexedDB** (browser-based database) for data persistence. Use th
    ```
 
 3. **Create a Pull Request**
-   - Naviate https://github.com/{GITHUBUSER}/PageSwap ( Your fork of the project )
+   - Navigate to https://github.com/{GITHUBUSER}/PageSwap ( Your fork of the project )
    - Click "Compare & pull request"
    - Ensure your name is the title of the description e.g John Smith
    - **Write a detailed PR description:**
@@ -395,9 +395,8 @@ Before starting, familiarize yourself with:
 ## 📞 Questions?
 
 If you encounter blockers or have questions about requirements:
-- **Technical issues:** Reach out to [contact email]
-- **Clarifications:** Document assumptions in your PR description
+- **Technical issues:** Reach out to joshua.sinclair@clear21.com
 
 ---
 
-**Good luck! We're excited to see how you approach this challenge.** 🚀
+**Good luck! We're excited to see how you approach this challenge.**
