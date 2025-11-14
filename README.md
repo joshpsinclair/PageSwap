@@ -251,7 +251,7 @@ In a real-world scenario, you'd complete Ticket 1, submit a PR, and continue wit
 
 ### Setup Instructions
 
-1. **For the repository**
+1. **Fork the repository**
    - Navigate to https://github.com/Clear21Public/PageSwap
    - Click Fork -> Create a new fork
    - This will Fork the repository to your personal GitHub account
