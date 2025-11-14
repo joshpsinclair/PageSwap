@@ -182,7 +182,6 @@ The CTO's initial implementation has several layout and styling issues that don'
 - [ ] Page layout matches Figma design precisely
 - [ ] Typography (sizes, weights, line-heights) matches design system
 - [ ] Spacing and padding match design specs
-- [ ] Colors use design system CSS variables (no hard-coded hex values)
 - [ ] All buttons match design system button styles
 - [ ] Hover states work on all interactive elements
 - [ ] Focus states are visible and accessible
@@ -195,7 +194,6 @@ The CTO's initial implementation has several layout and styling issues that don'
 #### Technical Notes
 - Review `UsersPage.tsx` and `UsersPage.module.css`
 - Check if design tokens exist and are being used properly
-- Consider refactoring CSS to use more design system variables
 - Test scrolling performance with large datasets
 
 ---
