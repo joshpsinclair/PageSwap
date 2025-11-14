@@ -254,8 +254,13 @@ In a real-world scenario, you'd complete Ticket 1, submit a PR, and continue wit
 1. **For the repository**
    - Navigate to https://github.com/Clear21Public/PageSwap
    - Click Fork -> Create a new fork
+   - This will Fork the repository to your personal GitHub account
 
 2. **Clone the repository**
+    - In your local dev environment open a command prompt and navigate to a development directory.
+   ```bash
+    cd C:\Development\ 
+   ```
    ```bash
    git clone git@github.com:{GITHUBUSER}/PageSwap.git
    # OR if you use HTTPS
@@ -335,8 +340,9 @@ The app uses **IndexedDB** (browser-based database) for data persistence. Use th
    ```
 
 3. **Create a Pull Request**
-   - Go to [https://github.com/josh-sinclair/PageSwap](https://github.com/josh-sinclair/PageSwap)
+   - Naviate https://github.com/{GITHUBUSER}/PageSwap ( Your fork of the project )
    - Click "Compare & pull request"
+   - Ensure your name is the title of the description e.g John Smith
    - **Write a detailed PR description:**
      - What tickets did you complete?
      - What architectural decisions did you make?
