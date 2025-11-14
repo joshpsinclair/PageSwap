@@ -251,38 +251,42 @@ In a real-world scenario, you'd complete Ticket 1, submit a PR, and continue wit
 
 ### Setup Instructions
 
-1. **Clone the repository**
+1. **For the repository**
+   - Navigate to https://github.com/Clear21Public/PageSwap
+   - Click Fork -> Create a new fork
+
+2. **Clone the repository**
    ```bash
-   git clone git@github.com:josh-sinclair/PageSwap.git
-   # or via HTTPS:
-   # git clone https://github.com/josh-sinclair/PageSwap.git
+   git clone git@github.com:{GITHUBUSER}/PageSwap.git
+   # OR if you use HTTPS
+   git clone https://github.com/{GITHUBUSER}/PageSwap.git
    ```
 
-2. **Create your feature branch**
+3. **Create your feature branch**
    ```bash
    cd PageSwap
    git checkout -b john-smith
    # Use your actual name: firstname-lastname
    ```
 
-3. **Install dependencies**
+4. **Install dependencies**
    ```bash
    npm install
    ```
 
-4. **Generate seed data**
+5. **Generate seed data**
    ```bash
    npm run seed 100
    # This creates fake user data in public/users.json
    # You can adjust the number (e.g., npm run seed 5000)
    ```
 
-5. **Start the development server**
+6. **Start the development server**
    ```bash
    npm run dev
    ```
 
-6. **Open the app**
+7. **Open the app**
    - Navigate to `http://localhost:5173` (or the URL shown in terminal)
    - Click "Users" in the sidebar to view the User Management page
 
