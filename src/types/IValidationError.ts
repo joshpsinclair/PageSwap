@@ -1,9 +1,8 @@
-﻿
-export interface IPropertyError {
-    property: string;
-    message: string;
+﻿export interface IPropertyError {
+  property: string;
+  message: string;
 }
 
 export interface IValidationError {
-    propertyErrors: IPropertyError[];
+  propertyErrors: IPropertyError[];
 }
