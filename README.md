@@ -67,7 +67,7 @@ The application uses a **Repository pattern** to abstract data operations. Repos
 **Example Usage:**
 
 ```tsx
-import { useUserRepository, useImageRepository } from '../contexts/RepositoryContext';
+import { useUserRepository, useImageRepository } from '../repositories';
 
 function MyComponent() {
   const userRepository = useUserRepository();
@@ -134,7 +134,7 @@ Implement a dialog that allows admins to create new users. The dialog should fol
 
 - [ ] Dialog opens when "Add User" button is clicked
 - [ ] All form fields are present and match design specs
-- [ ] Avatar grid displays all avatars from `src/data/avatars.ts`
+- [ ] Avatar grid displays all avatars from `src/repositories/avatars.ts`
 - [ ] User can select exactly one avatar (visual selection state)
 - [ ] Validation errors display inline when fields are invalid
 - [ ] Form cannot be submitted when validation fails
@@ -147,7 +147,7 @@ Implement a dialog that allows admins to create new users. The dialog should fol
 
 #### Technical Notes
 
-- Avatar data is available in `src/data/avatars.ts` (exports `AVATAR_IDS` array)
+- Avatar data is available in `src/repositories/avatars.ts` (exports `AVATAR_IDS` array)
 - Use the `useImageRepository()` hook to access image loading: `imageRepository.get(id)` resolves avatar URLs
 - Use the `useUserRepository()` hook to access user operations: `userRepository.add(user)` saves users
 - Consider extracting reusable form components (Input, Select, etc.)
@@ -454,9 +454,8 @@ Before starting, familiarize yourself with:
 
 - **`src/pages/UsersPage.tsx`** - Main user management page
 - **`src/components/UserTable.tsx`** - Table component
-- **`src/contexts/RepositoryContext.tsx`** - Repository context provider and hooks
-- **`src/data/types.ts`** - Repository interfaces (`IUserRepository`, `IImageRepository`)
-- **`src/data/avatars.ts`** - Available avatar IDs
+- **`src/repositories/index.ts`** - Public API for accessing repositories (hooks and types)
+- **`src/repositories/avatars.ts`** - Available avatar IDs
 - **`src/types/IUser.ts`** - User type definition
 
 ---

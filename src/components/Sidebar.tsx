@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './Sidebar.module.css';
-import { useDevUtilities } from '../contexts/RepositoryContext';
+import { useDevUtilities } from '../repositories';
 
 interface SidebarProps {
   currentPage: string;

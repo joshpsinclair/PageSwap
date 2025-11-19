@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as Avatar from '@radix-ui/react-avatar';
 import styles from './UserAvatar.module.css';
-import { useImageRepository } from '../contexts/RepositoryContext.tsx';
+import { useImageRepository } from '../repositories';
 
 interface UserAvatarProps {
   avatarId: string;

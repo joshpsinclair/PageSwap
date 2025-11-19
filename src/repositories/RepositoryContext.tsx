@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
-import { IndexDbUserRepository } from '../data/IndexDbUserRepository';
-import { StaticAssetImageRepository } from '../data/StaticAssetImageRepository';
-import type { IUserRepository, IImageRepository } from '../data/types';
+import { IndexDbUserRepository } from './IndexDbUserRepository';
+import { StaticAssetImageRepository } from './StaticAssetImageRepository';
+import type { IUserRepository, IImageRepository } from './types';
 import type { IUser } from '../types/IUser';
 
 interface RepositoryContextValue {
