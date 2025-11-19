@@ -1,36 +1,37 @@
-import { useState, useEffect, useCallback } from 'react'
-import { UserRepository } from '../data/UserRepository'
-import type { IUser } from '../types/IUser.ts'
-import { UserTable } from '../components/UserTable'
-import styles from './UsersPage.module.css'
+import { useState, useEffect, useCallback } from 'react';
+import { useUserRepository } from '../repositories';
+import type { IUser } from '../types/IUser.ts';
+import { UserTable } from '../components/UserTable';
+import styles from './UsersPage.module.css';
 
 export function UsersPage() {
-  const [users, setUsers] = useState<IUser[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const userRepository = useUserRepository();
+  const [users, setUsers] = useState<IUser[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const loadUsers = useCallback(async () => {
     try {
-      const allUsers = await UserRepository.getAll()
-      setUsers(allUsers)
+      const allUsers = await userRepository.getAll(0, Number.MAX_SAFE_INTEGER);
+      setUsers(allUsers);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed get users.')
+      setError(err instanceof Error ? err.message : 'Failed get users.');
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [])
-  
+  }, [userRepository]);
+
   useEffect(() => {
-    const getUsers = async() => {
-      await loadUsers()
-    }
-    
+    const getUsers = async () => {
+      await loadUsers();
+    };
+
     getUsers();
-  }, [loadUsers])
+  }, [loadUsers]);
 
   const handleAddUser = useCallback(() => {
-    alert('TODO: Implement add user modal')
-  }, [])
+    alert('TODO: Implement add user modal');
+  }, []);
 
   if (loading) {
     return (
@@ -38,7 +39,7 @@ export function UsersPage() {
         <h1 className={styles.loadingTitle}>User Management</h1>
         <p className={styles.loadingText}>Loading users...</p>
       </div>
-    )
+    );
   }
 
   if (error) {
@@ -47,26 +48,22 @@ export function UsersPage() {
         <h1 className={styles.errorTitle}>User Management</h1>
         <p className={styles.errorText}>Error: {error}</p>
       </div>
-    )
+    );
   }
 
   return (
     <div className={styles.page}>
-        <div className={styles.header}>
-          <i className={`fa-solid fa-gear ${styles.userIcon}`}></i>
-          <div className={styles.title}>User Management</div>
-          <div className={styles.addUser}>
-            <button onClick={handleAddUser}>
-              + Add User
-            </button>
-          </div>
+      <div className={styles.header}>
+        <i className={`fa-solid fa-gear ${styles.userIcon}`}></i>
+        <div className={styles.title}>User Management</div>
+        <div className={styles.addUser}>
+          <button onClick={handleAddUser}>+ Add User</button>
         </div>
+      </div>
 
-        <div className={styles.tableWrapper}>
-          <UserTable
-              users={users}
-          />
-        </div>
+      <div className={styles.tableWrapper}>
+        <UserTable users={users} />
+      </div>
     </div>
-  )
+  );
 }

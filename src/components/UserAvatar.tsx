@@ -1,54 +1,54 @@
-import { useState, useEffect } from 'react'
-import * as Avatar from '@radix-ui/react-avatar'
-import { ImageRepository } from '../data/ImageRepository'
-import styles from './UserAvatar.module.css'
+import { useState, useEffect } from 'react';
+import * as Avatar from '@radix-ui/react-avatar';
+import styles from './UserAvatar.module.css';
+import { useImageRepository } from '../repositories';
 
 interface UserAvatarProps {
-  avatarId: string
-  firstName?: string
-  lastName?: string
-  size?: number
+  avatarId: string;
+  firstName?: string;
+  lastName?: string;
+  size?: number;
 }
 
 export function UserAvatar({ avatarId, firstName, lastName, size = 40 }: UserAvatarProps) {
-  const [imageUrl, setImageUrl] = useState<string | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const imageRepository = useImageRepository();
 
   useEffect(() => {
-    if (!avatarId) {
-      setLoading(false)
-      return
-    }
-
-    let cancelled = false
+    let cancelled = false;
 
     const loadImage = async () => {
       try {
-        const url = await ImageRepository.get(avatarId)
+        const url = await imageRepository.get(avatarId);
         if (!cancelled) {
-          setImageUrl(url)
+          setImageUrl(url);
         }
       } catch (err) {
-        console.warn('Failed to load avatar:', err)
+        const fallbackUrl = await imageRepository.get('placeholder-dp.png');
+        if (!cancelled) {
+          setImageUrl(fallbackUrl);
+        }
       } finally {
         if (!cancelled) {
-          setLoading(false)
+          setLoading(false);
         }
       }
-    }
+    };
 
-    loadImage()
+    loadImage();
 
     return () => {
-      cancelled = true
-    }
-  }, [avatarId])
-  
-  const initials = [firstName, lastName]
-    .filter(Boolean)
-    .map(name => name?.[0]?.toUpperCase())
-    .join('')
-    .slice(0, 2) || '?'
+      cancelled = true;
+    };
+  }, [avatarId]);
+
+  const initials =
+    [firstName, lastName]
+      .filter(Boolean)
+      .map((name) => name?.[0]?.toUpperCase())
+      .join('')
+      .slice(0, 2) || '?';
 
   return (
     <Avatar.Root
@@ -79,5 +79,5 @@ export function UserAvatar({ avatarId, firstName, lastName, size = 40 }: UserAva
         </>
       )}
     </Avatar.Root>
-  )
+  );
 }

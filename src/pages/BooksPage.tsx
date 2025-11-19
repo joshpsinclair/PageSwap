@@ -1,4 +1,4 @@
-import styles from './Page.module.css'
+import styles from './Page.module.css';
 
 export function BooksPage() {
   return (
@@ -12,5 +12,5 @@ export function BooksPage() {
         <p className={styles.emptyText}>Book management coming soon</p>
       </div>
     </div>
-  )
+  );
 }

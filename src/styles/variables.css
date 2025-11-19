@@ -1,7 +1,7 @@
 :root {
   /* Primary colors */
-  --color-primary-main: #0E567C;
-  --color-primary-light: #2488BC;
+  --color-primary-main: #0e567c;
+  --color-primary-light: #2488bc;
   --color-primary-dark: #083248;
   --color-primary-contrast: #ffffff;
 
@@ -10,16 +10,16 @@
   --color-secondary-light: #a1a8ae;
   --color-secondary-dark: #495057;
   --color-secondary-contrast: #ffffff;
-  
+
   --color-silver: #bbbbbb;
 
   /* Semantic colors */
-  --color-success-main: #43853C;
+  --color-success-main: #43853c;
   --color-success-light: #5cb85c;
   --color-success-dark: #1e7e34;
 
   --color-error-main: #dc3545;
-  --color-error-light: #FCF0EE;
+  --color-error-light: #fcf0ee;
   --color-error-dark: #c82333;
 
   --color-warning-main: #ffc107;
@@ -37,7 +37,7 @@
   --color-text-hint: #999999;
 
   /* Background colors */
-  --color-background-default: #F1F1F1;
+  --color-background-default: #f1f1f1;
   --color-background-paper: #f8f8f8;
   --color-background-hover: #f1f3f5;
   --color-background-disabled: #e9ecef;
@@ -65,9 +65,9 @@
   --radius-full: 9999px;
 
   /* Typography */
-  --font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  --font-family:
+    'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
 
   /* Font sizes */
   --font-size-xs: 12px;

@@ -1,4 +1,4 @@
-import styles from './Page.module.css'
+import styles from './Page.module.css';
 
 export function LoansPage() {
   return (
@@ -8,9 +8,12 @@ export function LoansPage() {
         <h1 className={styles.title}>Loans & Swaps</h1>
       </div>
       <div className={styles.emptyState}>
-        <i className="fa-solid fa-arrow-right-arrow-left" style={{ fontSize: '48px', color: 'var(--color-text-disabled)' }}></i>
+        <i
+          className="fa-solid fa-arrow-right-arrow-left"
+          style={{ fontSize: '48px', color: 'var(--color-text-disabled)' }}
+        ></i>
         <p className={styles.emptyText}>Loan and swap management coming soon</p>
       </div>
     </div>
-  )
+  );
 }

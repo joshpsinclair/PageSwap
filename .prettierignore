@@ -1,0 +1,7 @@
+﻿public/
+assets/
+coverage/
+dist/
+build/
+node_modules/
+.gitignore

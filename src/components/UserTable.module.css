@@ -38,7 +38,8 @@ tr {
   height: 50px;
 }
 
-td, th {
+td,
+th {
   padding-left: var(--spacing-md);
   padding-right: var(--spacing-md);
   color: var(--color-text-primary);
