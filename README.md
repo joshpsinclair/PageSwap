@@ -1,6 +1,6 @@
 # PageSwap - Frontend Engineering Challenge
 
-> **Note:** This company, product, and roadmap are all fictitious. PageSwap is designed to create a realistic scenario that helps guide your technical decisions. None of your work will be used outside of this assessment. **AI usage is acceptable.**
+> **Note:** This company, product, and roadmap are all fictitious. PageSwap is designed to create a realistic scenario that helps guide your technical decisions. None of your work will be used outside of this assessment. **AI usage is not permitted for this assessment.**
 
 ---
 
